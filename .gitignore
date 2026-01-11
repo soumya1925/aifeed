@@ -1,0 +1,13 @@
+# Backend
+mini-mark-backend/node_modules
+mini-mark-backend/.env
+
+# Frontend
+mini-mark-frontend/node_modules
+mini-mark-frontend/.env
+
+# Logs
+*.log
+
+# OS
+.DS_Store
