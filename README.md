@@ -68,9 +68,9 @@ Response: Mini Mark API running ✅
 
 
 ## 📝 Signup
--http
--POST /auth/signup
--Request Body:
+- http
+- POST /auth/signup
+- Request Body:
 ```
 json
 {
@@ -89,9 +89,9 @@ json
 ```
 
 ## 🔑 Login
--http
--POST /auth/login
--Request Body:
+- http
+- POST /auth/login
+- Request Body:
 ```
 json
 {
@@ -108,13 +108,14 @@ json
 }
 Note: All routes except /auth/* are JWT protected. Use the following header for protected routes:
 ```
-Authorization: Bearer <JWT_TOKEN>
-📺 Feed API
-Get Feed (Role-based Response)
-http
-GET /feed
-Consumer Response (views & earnings hidden):
 
+## 📺 Feed API
+- Authorization: Bearer <JWT_TOKEN>
+- Get Feed (Role-based Response)
+- http
+- GET /feed
+- Consumer Response (views & earnings hidden):
+```
 json
 [
   {
@@ -123,8 +124,9 @@ json
     // views & earnings are hidden for consumers
   }
 ]
-Creator/Brand Response (full data):
-
+```
+- Creator/Brand Response (full data):
+```
 json
 [
   {
@@ -134,60 +136,64 @@ json
     "earnings": 320
   }
 ]
-🎯 Campaign Routes (Brand Only)
-Deploy Campaign
-http
-POST /campaigns/:id/deploy
+```
+## 🎯 Campaign Routes (Brand Only)
+- Deploy Campaign
+- http
+- POST /campaigns/:id/deploy
 Response:
-
+```
 json
 {
   "message": "Campaign deployed successfully",
   "remainingBudget": 4500
 }
-🎥 Reel Routes
-Increment Views & Earnings (Brand Only)
-http
-POST /reels/:id/view
-Response:
-
+```
+## 🎥 Reel Routes
+- Increment Views & Earnings (Brand Only)
+- http
+- POST /reels/:id/view
+- Response:
+```
 json
 {
   "message": "View recorded",
   "views": 1300,
   "earnings": 350
 }
-📊 Analytics Routes
-Get Creators with Reels
-http
-GET /analytics/creators
-Returns:
+```
+## 📊 Analytics Routes
+- Get Creators with Reels
+- http 
+- GET /analytics/creators
+- Returns:
 
-Total views across all reels
+- Total views across all reels
 
-Total earnings across all reels
+- Total earnings across all reels
 
-Reel count per creator
+- Reel count per creator
 
-Get Brands with Campaigns
-http
-GET /analytics/brands
-Returns:
+- Get Brands with Campaigns
+- http
+- GET /analytics/brands
+- Returns:
 
-Campaign count per brand
+- Campaign count per brand
 
-Number of active campaigns
+- Number of active campaigns
 
-Total budget across all campaigns
+- Total budget across all campaigns
 
-🧪 Testing with Postman
-Signup Endpoint: Create a new user account
+## 🧪 Testing with Postman
+- Signup Endpoint: Create a new user account
 
-Login Endpoint: Get JWT token for authentication
+- Login Endpoint: Get JWT token for authentication
 
-Add Authorization Header: Authorization: Bearer <token>
+- Add Authorization Header: Authorization: Bearer <token>
 
 Test Protected Routes:
+```
 
 /feed - View role-based feed
 
@@ -198,33 +204,34 @@ Test Protected Routes:
 /analytics/creators - View creator analytics
 
 /analytics/brands - View brand analytics
+```
 
-🌱 Seed Data
+##  🌱 Seed Data
 Run the following command locally to populate the database with sample data:
 
-bash
-node seedData.js
-What gets seeded:
+- bash
+- node seedData.js
+- What gets seeded:
 
-20 users (mix of consumers, creators, and brands)
+- 20 users (mix of consumers, creators, and brands)
 
-Creator reels with associated media
+- Creator reels with associated media
 
-Brand campaigns with random budgets
+- Brand campaigns with random budgets
 
-Random views and earnings data
+- Random views and earnings data
 
-🛡 Security Features
-Password Security: bcryptjs for password hashing
+##  🛡 Security Features
+- Password Security: bcryptjs for password hashing
 
-Authentication: JWT tokens for session management
+- Authentication: JWT tokens for session management
 
-Authorization: Role-based access control (RBAC)
+- Authorization: Role-based access control (RBAC)
 
-Input Validation: Joi schema validation for all endpoints
+- Input Validation: Joi schema validation for all endpoints
 
-HTTP Security: Helmet.js for security headers
+- HTTP Security: Helmet.js for security headers
 
-CORS: Cross-Origin Resource Sharing configuration
+- CORS: Cross-Origin Resource Sharing configuration
 
-Logging: Morgan for HTTP request logging
+- Logging: Morgan for HTTP request logging
